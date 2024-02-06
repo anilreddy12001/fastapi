@@ -1,22 +1,28 @@
 import websockets
 import asyncio
+import logging
+
+
 
 # Server data
 PORT = 10000
 print("Server listening on Port " + str(PORT))
-
+logging.info("Server listening on Port" + str(PORT))
 # A set of connected ws clients
 connected = set()
 
 # The main behavior function for this server
 async def echo(websocket, path):
     print("A client just connected")
+    logging.info("A client just connected")
     # Store a copy of the connected client
     connected.add(websocket)
     # Handle incoming messages
     try:
         async for message in websocket:
             print("Received message from client origin: " + websocket.origin+" message: "+message)
+            #logging.debug('This is a debug message')
+            logging.info("Received message from client origin: " + websocket.origin+" message: "+message)
             # Send a response to all connected clients except sender
             for conn in connected:
                 #if conn != websocket:
@@ -24,6 +30,7 @@ async def echo(websocket, path):
     # Handle disconnecting clients 
     except websockets.exceptions.ConnectionClosed as e:
         print("A client just disconnected")
+        logging.info("A client just disconnected")
     finally:
         connected.remove(websocket)
 
