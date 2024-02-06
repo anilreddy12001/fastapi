@@ -7,6 +7,7 @@ import logging
 # Server data
 PORT = 10000
 print("Server listening on Port " + str(PORT))
+logging.basicConfig(level=logging.INFO)
 logging.info("Server listening on Port" + str(PORT))
 # A set of connected ws clients
 connected = set()
