@@ -27,7 +27,12 @@ async def echo(websocket, path):
             # Send a response to all connected clients except sender
             for conn in connected:
                 #if conn != websocket:
-                    await conn.send(" python responds: " +websocket.origin+" :: "+ message)
+                if(isinstance(message, object)){
+                    await conn.send(" python responds to an object from " +websocket.origin+" with a message: "+ message)
+                }
+                else{
+                    await conn.send(" python responds to " +websocket.origin+" with a message: "+ message)
+                }
     # Handle disconnecting clients 
     except websockets.exceptions.ConnectionClosed as e:
         print("A client just disconnected")
