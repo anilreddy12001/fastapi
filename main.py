@@ -9,8 +9,7 @@ PORT = 10000
 print("Server listening on Port " + str(PORT))
 logging.basicConfig(level=logging.INFO)
 logging.info("Server listening on Port" + str(PORT))
-def is_object(message):
-  return isinstance(message, object)
+
 
 # A set of connected ws clients
 connected = set()
@@ -30,11 +29,7 @@ async def echo(websocket, path):
             # Send a response to all connected clients except sender
             for conn in connected:
                 #if conn != websocket:
-                if is_object(message):
-                    await conn.send(" python responds to an object from " +websocket.origin+" with a message: "+ message)
-                
-                else:
-                    await conn.send(" python responds to " +websocket.origin+" with a message: "+ message)
+                  await conn.send(" python responds to " +websocket.origin+" with a message: "+ message)
                 
     # Handle disconnecting clients 
     except websockets.exceptions.ConnectionClosed as e:
