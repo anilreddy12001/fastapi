@@ -1,7 +1,10 @@
 import websockets
 import asyncio
 import logging
+import subprocess
 
+# Run the other script
+subprocess.run(["python", "pymongo_test_query.py"])
 
 
 # Server data
@@ -38,7 +41,6 @@ async def echo(websocket, path):
     finally:
         connected.remove(websocket)
 
-python pymongo_test_query.py
 # Start the server
 start_server = websockets.serve(echo, "0.0.0.0", PORT)
 asyncio.get_event_loop().run_until_complete(start_server)
