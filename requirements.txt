@@ -3,4 +3,3 @@ websockets
 asyncio
 logging
 pymongo[srv]
-subprocess
