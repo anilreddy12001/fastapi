@@ -2,3 +2,4 @@ fastapi[all]
 websockets
 asyncio
 logging
+pymongo[srv]
