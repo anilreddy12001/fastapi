@@ -3,6 +3,26 @@ import asyncio
 import logging
 import subprocess
 
+from typing import Optional
+
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
+app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # List of allowed origins
+    allow_credentials=True,
+    allow_methods=["*"],  # Allowed HTTP methods (e.g., GET, POST)
+    allow_headers=["*"],  # Allowed headers
+)
+@app.get("/")
+async def root():
+    return {"message": "Hello World"}
+
+@app.get("/items/{item_id}")
+def read_item(item_id: int, q: Optional[str] = None):
+    return {"item_id": item_id, "q": q}
 # Run the other script
 subprocess.run(["python", "pymongo_test_query.py"])
 
