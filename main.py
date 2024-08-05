@@ -22,7 +22,7 @@ async def root():
 
 @app.get("/items/{item_id}")
 def read_item(item_id: int, q: Optional[str] = None):
-    return {"item_id": item_id, "q": q}
+    return {"item_id^2": item_id*item_id, "q": q}
 # Run the other script
 subprocess.run(["python", "pymongo_test_query.py"])
 
