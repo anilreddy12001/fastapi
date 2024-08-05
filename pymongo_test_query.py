@@ -3,7 +3,7 @@ from pymongo_get_database import get_database
 dbname = get_database()
  
 # Retrieve a collection named "user_1_items" from database
-collection_name = dbname["user_1_items"]
+collection_name = dbname["sample_airbnb"]
  
 item_details = collection_name.find()
 for item in item_details:
