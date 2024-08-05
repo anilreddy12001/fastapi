@@ -2,8 +2,8 @@ from pymongo import MongoClient
 def get_database():
  
    # Provide the mongodb atlas url to connect python to mongodb using pymongo
-   CONNECTION_STRING = "mongodb+srv://admin:pwd@cluster0.mongodb.net/"
- 
+   CONNECTION_STRING = "mongodb+srv://admin:v83gMU4ndOYVMHyy@cluster0.axbm8sf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+#"mongodb+srv://admin:pwd@cluster0.mongodb.net/"
    # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
    client = MongoClient(CONNECTION_STRING)
  
