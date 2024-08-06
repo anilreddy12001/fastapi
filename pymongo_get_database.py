@@ -5,7 +5,7 @@ def get_database():
    CONNECTION_STRING = "mongodb+srv://admin:v83gMU4ndOYVMHyy@cluster0.axbm8sf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
 #"mongodb+srv://admin:pwd@cluster0.mongodb.net/"
    # Create a connection using MongoClient. You can import MongoClient or use pymongo.MongoClient
-   client = MongoClient(CONNECTION_STRING, server_api=ServerApi('1'))
+   client = MongoClient(CONNECTION_STRING)
  
    # Create the database for our example (we will use the same database throughout the tutorial
    return client['user_shopping_list']
